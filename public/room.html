@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RTC Room</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script>
+      const params = new URLSearchParams(location.search);
+      if (!params.get('roomName')) window.location.href='/';
+    </script>
+  </head>
+  <body onload="connect()">
+    <div class="header">
+      <p>Welcome </p>
+  </div>
+
+  <div class="main">
+      <div class="main-bar">
+          <div id="video-panel" class="single-video">
+              <video id="video-frame" class="v-frame" autoplay playsinline></video>
+          </div>
+          <div id="canvas-panel">
+              <button id="pen-tool" onclick="pencil()">Pencil</button>
+              <button id="text-tool" onclick="typing()">Text</button>
+              <button id="eraser-tool" onclick="eraser()">Eraser</button>
+              <label>Line width</label>
+              <button id="pixel-minus" onclick="pixelMinus()">-</button>
+              <button id="pixel-plus" onclick="pixelPlus()">+</button>
+              <label>Color Picker</label>
+              <button style="background-color: #000000; height: 20px; width: 20px;" onclick="setColor('#000000')"></button>
+              <button style="background-color: #8a2be2; height: 20px; width: 20px;" onclick="setColor('#8a2be2')"></button>
+              <button style="background-color: #468284; height: 20px; width: 20px;" onclick="setColor('#468284')"></button>
+              <canvas id="canvas-board" onload="pencil()">Unsupported</canvas>
+              <label>file name</label>
+              <input id="file-name" type="text" />
+              <button id="save" onclick="save()">Save</button>
+          </div>
+      </div>
+      <div class="side-bar">
+          <div class="box">
+              <div id="sidebar-tab1-content"></div>
+              <div id="sidebar-tab2-content">
+                  <div class="chat-messages"></div>
+                  <input id="message-input" type="text" />
+                  <button id="message-send-button" type="button">Send</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="footer">
+      <button id="audio-toggle-button">Audio Mute</button>
+      <button id="video-toggle-button">Video Off</button>
+      <button id="board-toggle-button">Board</button>
+      <button id="sidebar-tab1" onclick="selectSideBarTab('1')">Participants</button>
+      <button id="sidebar-tab2" onclick="selectSideBarTab('2')">Chats</button>
+      <button id="leave-button">Hang up</button>
+  </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/room.js"></script>
+  </body>
+</html>

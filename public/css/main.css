@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  padding: 5px;
+  background: #f1f1f1;
+}
+
+.header {
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  background: white;
+}
+
+.main-bar {
+  float: left;
+  width: 75%;
+  height: 100%;
+  display: table-row;
+}
+
+.side-bar {
+  float: left;
+  display: table-row;
+  background: #ddd;
+  width: 25%;
+  height: 100%;
+  padding-left: 5px;
+  text-align: center;
+}
+
+#sidebar-tab1-content, #sidebar-tab2-content {
+  width: 100%;
+  display: block;
+}
+
+#sidebar-tab1-content {
+  display: block;
+  text-align: center;
+  padding: 5px;
+  overflow: scroll;
+}
+
+#sidebar-tab2-content {
+  display: none;
+}
+
+.main:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.box {
+  background-color: white;
+  padding: 5px;
+  margin-top: 5px;
+  text-align: center;
+  height: 100%;
+}
+
+.footer {
+  padding: 10px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 800px) {
+  .main-bar, .side-bar {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+#canvas-panel {
+  display: none;
+  width: auto;
+  height: max-content;
+}
+
+#canvas-board {
+  cursor: crosshair;
+  margin: 0 auto;
+  display: inherit;
+  border: 2px solid #000000;
+  z-index: 1;
+}
+
+#video-panel {
+  display: block;
+  text-align: center;
+}
+
+video {
+  max-width: 100%;
+  width: 75%;
+  border-radius: 2%;
+  background-color: black;
+  margin-top: 20px;
+}
+
+.color {
+  top: 10%;
+  left: 45%;
+  width: 20px;
+  height: 20px;
+  border: 2px white solid;
+  border-radius: 5px;
+  cursor:pointer;
+}
+
+.users .list-group  .list-group-item {
+  padding-left: 0;
+  border: none;
+  background-color: transparent;
+}
+.users .list-group-horizontal {
+  margin-top: -10px;
+}
+
+.user-list {
+  padding: 1px;
+  height: 50px;
+  width: 200px;
+  border: 1px solid black;
+  overflow: scroll;
+}
+
+.user-list li {
+  cursor: pointer;
+  padding: 1px;
+}
+
+.chat-messages {
+  height: 450px;
+  width: 80%;
+  text-align: left;
+  overflow: scroll;
+}
